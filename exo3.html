@@ -1,12 +1,197 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
 </head>
 <body>
-    
+  <div id="vis"/>
+  <script>
+    const spec = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A simple bar chart with embedded data.",
+  "data": {
+    "values": [
+      {
+        "itemLabel": "Crimean Tom",
+        "date_de_naissance": "1847-01-01T00:00:00Z",
+        "sexe_ou_genreLabel": "male",
+        "lieu_de_naissanceLabel": "Sebastopol",
+        "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Crimean%20Tom.jpg"
+      },
+      {
+        "itemLabel": "Nitama",
+        "date_de_naissance": "2010-01-01T00:00:00Z",
+        "sexe_ou_genreLabel": "femelle",
+        "lieu_de_naissanceLabel": "Okayama",
+        "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Stationmaster%20NITAMA%2020110105.jpg"
+      },
+      {
+        "itemLabel": "Sero",
+        "date_de_naissance": "2005-01-01T00:00:00Z",
+        "sexe_ou_genreLabel": "male",
+        "lieu_de_naissanceLabel": "Ankara",
+        "image": "http://commons.wikimedia.org/wiki/Special:FilePath/%C5%9Eero%20CHP.jpg"
+      },
+      {
+        "itemLabel": "Mittens",
+        "date_de_naissance": "2010-01-01T00:00:00Z",
+        "sexe_ou_genreLabel": "male",
+        "lieu_de_naissanceLabel": "Auckland",
+        "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Mittens%20the%20cat%20of%20wellington.jpg"
+      },
+      {
+        "itemLabel": "Apelmon",
+        "date_de_naissance": "2006-07-27T00:00:00Z",
+        "sexe_ou_genreLabel": "male",
+        "lieu_de_naissanceLabel": "Ukraine",
+        "image": "http://commons.wikimedia.org/wiki/Special:FilePath/%D0%9D%D0%B0%D1%82%D0%B0%D0%BB%D0%BA%D0%B0%20%D0%94%D1%96%D0%B4%D0%B5%D0%BD%D0%BA%D0%BE%20%D0%B7%20%D0%BA%D0%BE%D1%82%D0%BE%D0%BC%20%D0%90%D0%BF%D0%B5%D0%BB%D1%8C%D0%BC%D0%BE%D0%BD%D0%BE%D0%BC.jpg"
+      },
+      {
+        "itemLabel": "Willow",
+        "date_de_naissance": "2019-01-01T00:00:00Z",
+        "sexe_ou_genreLabel": "femelle",
+        "lieu_de_naissanceLabel": "Volant",
+        "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Willow%20the%20First%20Cat.png"
+      },
+      {
+        "itemLabel": "the pet from Borodianka",
+        "date_de_naissance": "2010-01-01T00:00:00Z",
+        "sexe_ou_genreLabel": "femelle",
+        "lieu_de_naissanceLabel": "Borodianka",
+        "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Rescue%20of%20a%20cat%20in%20Borodianka%2C%202%20May%202022%20%284%29.jpg"
+      },
+      {
+        "itemLabel": "CC",
+        "date_de_naissance": "2001-12-22T00:00:00Z",
+        "sexe_ou_genreLabel": "femelle",
+        "lieu_de_naissanceLabel": "College Station",
+        "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Ccandowner2003.jpg"
+      },
+      {
+        "itemLabel": "Orangey",
+        "date_de_naissance": "1950-01-01T00:00:00Z",
+        "sexe_ou_genreLabel": "male",
+        "lieu_de_naissanceLabel": "Etats-Unis",
+        "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Orangey%20with%20Audrey%20Hepburn%20in%20Breakfast%20at%20Tiffanys.jpg"
+      },
+      {
+        "itemLabel": "Sam l'insubmersible",
+        "date_de_naissance": "1940-01-01T00:00:00Z",
+        "sexe_ou_genreLabel": "male",
+        "lieu_de_naissanceLabel": "Allemagne",
+        "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Unsinkable%20Sam%20portrait.jpg"
+      },
+      {
+        "itemLabel": "Tama",
+        "date_de_naissance": "1999-04-29T00:00:00Z",
+        "sexe_ou_genreLabel": "femelle",
+        "lieu_de_naissanceLabel": "Kinokawa",
+        "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Station-Master%20Tama.JPG"
+      },
+      {
+        "itemLabel": "Socks",
+        "date_de_naissance": "1989-01-01T00:00:00Z",
+        "sexe_ou_genreLabel": "male",
+        "lieu_de_naissanceLabel": "Little Rock",
+        "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Socks%20the%20Cat%20Explores.jpg"
+      },
+      {
+        "itemLabel": "India",
+        "date_de_naissance": "1990-07-13T00:00:00Z",
+        "sexe_ou_genreLabel": "femelle",
+        "lieu_de_naissanceLabel": "Etats-Unis",
+        "image": "http://commons.wikimedia.org/wiki/Special:FilePath/India%20the%20Cat%20Miss%20Beazley%20and%20Barney%20Halloween%202007%20%28cropped%29.jpg"
+      },
+      {
+        "itemLabel": "India",
+        "date_de_naissance": "1990-07-13T00:00:00Z",
+        "sexe_ou_genreLabel": "femelle",
+        "lieu_de_naissanceLabel": "Etats-Unis",
+        "image": "http://commons.wikimedia.org/wiki/Special:FilePath/IndioCat.jpg"
+      },
+      {
+        "itemLabel": "India",
+        "date_de_naissance": "1990-07-13T00:00:00Z",
+        "sexe_ou_genreLabel": "femelle",
+        "lieu_de_naissanceLabel": "Etats-Unis",
+        "image": "http://commons.wikimedia.org/wiki/Special:FilePath/WhiteHousePets%2C%20ValentinesDay2007.jpg"
+      },
+      {
+        "itemLabel": "Scarlett",
+        "date_de_naissance": "http://www.wikidata.org/.well-known/genid/be71139efe1e1e5b0b567f25ce5f330e",
+        "sexe_ou_genreLabel": "femelle",
+        "lieu_de_naissanceLabel": "New York",
+        "image": "http://commons.wikimedia.org/wiki/Special:FilePath/ScarlettTheCat.jpg"
+      },
+      {
+        "itemLabel": "Freya",
+        "date_de_naissance": "2009-04-01T00:00:00Z",
+        "sexe_ou_genreLabel": "femelle",
+        "lieu_de_naissanceLabel": "Londres",
+        "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Freya%20the%20cat-20120615%20132253%20%28cropped%29.jpg"
+      },
+      {
+        "itemLabel": "Stubbs",
+        "date_de_naissance": "1997-04-12T00:00:00Z",
+        "sexe_ou_genreLabel": "male",
+        "lieu_de_naissanceLabel": "Talkeetna",
+        "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Mayor%20Stubbs.jpg"
+      },
+      {
+        "itemLabel": "Grumpy Cat",
+        "date_de_naissance": "2012-04-04T00:00:00Z",
+        "sexe_ou_genreLabel": "femelle",
+        "lieu_de_naissanceLabel": "Morristown",
+        "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Grumpy%20Cat%20%2814556024763%29%20%28cropped%29.jpg"
+      },
+      {
+        "itemLabel": "Lil Bub",
+        "date_de_naissance": "2011-06-21T00:00:00Z",
+        "sexe_ou_genreLabel": "femelle",
+        "lieu_de_naissanceLabel": "Bloomington",
+        "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Lil-Bub-2013.jpg"
+      },
+      {
+        "itemLabel": "Buurtpoes Bledder",
+        "date_de_naissance": "2011-01-01T00:00:00Z",
+        "sexe_ou_genreLabel": "male",
+        "lieu_de_naissanceLabel": "Pays-Bas",
+        "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Buurtpoesbledder.jpg"
+      },
+      {
+        "itemLabel": "Palmerston",
+        "date_de_naissance": "2014-01-01T00:00:00Z",
+        "sexe_ou_genreLabel": "male",
+        "lieu_de_naissanceLabel": "Londres",
+        "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Palmerston%20%2826341788971%29.jpg"
+      },
+      {
+        "itemLabel": "Gladstone",
+        "date_de_naissance": "2014-01-01T00:00:00Z",
+        "sexe_ou_genreLabel": "male",
+        "lieu_de_naissanceLabel": "Londres",
+        "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Gladstone%20a%20year%20in%20Treasury%20%281%29.jpg"
+      },
+      {
+        "itemLabel": "Gli",
+        "date_de_naissance": "2004-01-01T00:00:00Z",
+        "sexe_ou_genreLabel": "femelle",
+        "lieu_de_naissanceLabel": "Sainte-Sophie",
+        "image": "http://commons.wikimedia.org/wiki/Special:FilePath/Ayasofya%20Gli%20cat.jpg"
+      }
+    ]
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {"field": "sexe_ou_genreLabel", "type": "nominal"},
+    "y": {"field": "lieu_de_naissanceLabel", "type": "nominal"},
+    "color": {"field": "sexe_ou_genreLabel"}
+  },
+  "config": {}
+};
+    vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+  </script>
 </body>
 </html>
