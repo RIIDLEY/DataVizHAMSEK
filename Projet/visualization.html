@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+</head>
+
+<body>
+
+  <center>
+    <h1>Partie 1</h1>
+    <p>Dataset utilisé: <i><a
+          href="https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-08-18/plants.csv">
+          https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-08-18/plants.csv</a></i>
+    </p>
+
+    <p>
+      Dernière présence des plantes suivant différentes périodes.
+    </p>
+    <iframe width="1200" height="800" frameborder="0" scrolling="no" src="//plotly.com/~KryLex0/10.embed"></iframe>
+
+    <div style="border:solid; width: 50%; height: 0.1%; margin-top: 2%; margin-bottom: 2%;"></div>
+
+    <p>
+      Répartition des plantes par pays.
+    </p>
+    <iframe width="1200" height="800" frameborder="0" scrolling="no" src="//plotly.com/~KryLex0/12.embed"></iframe>
+
+
+
+
+    <div style="border:solid; width: 100%; height: 0.1%; margin-top: 2%; margin-bottom: 2%;"></div>
+
+    <h1>Partie 2</h1>
+
+    <p>Dataset utilisé : <a href="https://inpn.mnhn.fr/espece/cd_nom/112355/tab/carte?lg=en">INPN</a></p>
+    
+    <p>Visulisation de la répartition des coquelicots en France par département</p>
+
+    <iframe width="600" height="371" seamless frameborder="0" scrolling="no"
+      src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQZN4xp85ry0yGjmW32hyzV1NVf1nqDj70vR-tK_FBmjIzrrCFhhhIwvjIJJSEzeBz2HF0nEpjM05k4/pubchart?oid=897089766&amp;format=interactive"></iframe>
+
+
+    <p>Visulisation de la répartition des coquelicots en France Métropolitaine</p>
+    <div id="vis">
+
+
+
+
+
+
+      <h1>Brouillon</h1>
+
+      <p>
+        Répartition des plantes par pays.
+      </p>
+      <iframe width="900" height="800" frameborder="0" scrolling="no" src="//plotly.com/~KryLex0/6.embed"></iframe>
+
+      <div style="border:solid; width: 50%; height: 0.1%; margin-top: 2%; margin-bottom: 2%;"></div>
+
+      <p>
+        Dernière présence des plantes suivant différentes périodes.
+      </p>
+      <iframe width="900" height="800" frameborder="0" scrolling="no" src="//plotly.com/~KryLex0/8.embed"></iframe>
+
+      <div style="border:solid; width: 50%; height: 0.1%; margin-top: 2%; margin-bottom: 2%;"></div>
+
+
+
+
+  </center>
+
+  <script>
+    const spec = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "width": 1920,
+      "height": 1080,
+      "layer": [
+        {
+          "data": {
+            "url": "CarteFrance.json",
+            "format": { "type": "topojson", "feature": "FRA_adm2" }
+          },
+          "projection": { "type": "mercator" },
+          "mark": { "type": "geoshape", "fill": "lightgray", "stroke": "white" }
+        },
+        {
+          "data": { "url": "data/first_50000_DataSetInitCoquelicot.csv" },
+          "mark": "circle",
+          "encoding": {
+            "longitude": { "field": "longitude", "type": "quantitative" },
+            "latitude": { "field": "latitude", "type": "quantitative" },
+            "color": { "value": "steelblue" }
+          }
+        }
+      ],
+      "config": {}
+    };
+    vegaEmbed("#vis", spec, { mode: "vega-lite" }).then(console.log).catch(console.warn);
+  </script>
+</body>
+
+</html>
