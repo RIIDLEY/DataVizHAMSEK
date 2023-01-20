@@ -1,7 +1,5 @@
 ID,nom_plante,chemin,date,latitude,longitude
 0,Plante 77,https://riidley.github.io/DataVizHAMSEK/Projet/data/jpg\image_0001.jpg,28/11/2011,-30.791844274009243,-26.566130687688286
-1,Plante 43,https://riidley.github.io/DataVizHAMSEK/Projet/data/jpg\image_0002.jpg,14/4/2010,-8.425224311541626,-65.57351262065637
-2,Plante 58,https://riidley.github.io/DataVizHAMSEK/Projet/data/jpg\image_0003.jpg,24/9/2008,-44.91793949289084,12.73597941451834
 3,Plante 23,https://riidley.github.io/DataVizHAMSEK/Projet/data/jpg\image_0004.jpg,13/5/2020,-30.184192530811572,60.6526887780833
 4,Plante 50,https://riidley.github.io/DataVizHAMSEK/Projet/data/jpg\image_0005.jpg,26/7/2008,-89.98330615997068,-34.98111123504981
 5,Plante 48,https://riidley.github.io/DataVizHAMSEK/Projet/data/jpg\image_0006.jpg,9/10/2001,6.307757526067789,94.25764811012425
