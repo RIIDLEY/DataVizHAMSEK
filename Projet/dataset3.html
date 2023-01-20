@@ -20,20 +20,10 @@
             </div>
         </div>
     </nav>
-    
+
     <center style="margin-top: 30px;">
-        <h1>Cours sur la visulisaiton de données en masse</h1>
-
-        <!-- Fait moi une liste pour afficher les étudiants et le theme -->
-        <u><h2>Etudiants : </h2></u>
-        <ul>
-            <li>Donia Boughdiri | NET</li>
-            <li>Adam Mkhinini | THYP</li>
-            <li>Lahoucine Hamsek | THYP</li>
-        </ul>
-
-        <u><h2>Thème :</u> les plantes</h2>
-        <img src="plant.jpg" width="500px">
-    </center>
+        <p>Visulisation sous forme de graphe d'image de plante</p>
+        <iframe style="width: 80vw; height: 50vh; border: none;" src="https://query.wikidata.org/embed.html#%23defaultView%3AGraph%0ASELECT%20%3Fplante%20%3Fimage%20WHERE%20%7B%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cen%22.%20%7D%0A%20%20%3Fplante%20wdt%3AP180%20wd%3AQ756%3B%0A%20%20%20%20wdt%3AP18%20%3Fimage.%0A%7D%0ALIMIT%20100" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups"></iframe>    </center>
+    
 </body>
 </html>
